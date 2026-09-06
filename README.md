@@ -67,3 +67,37 @@ Execute data preparation (handling the two fields with missing values) and begin
 
 ---
 *This README will be updated each week as the HealthConnect project progresses.*
+
+## Week 5 — Exploratory Analysis & KPI Development
+
+Building on Week 4's problem understanding, Week 5 moved into real analysis — cleaning the dataset, calculating actual KPIs, and building an initial dashboard.
+
+### Data Preparation
+- Confirmed `booking_date` and `appointment_date` were already correctly typed as Date
+- Imputed missing `distance_to_clinic_km` (1.8% missing) and `waiting_time_minutes` (1.2% missing) using median values (8.7 km and 24 minutes) to preserve all 5,000 records
+- Left `reminder_channel`'s missing values untouched, since they correspond exactly to appointments where no reminder was sent
+
+### KPIs Calculated
+| KPI | Result | Business Question |
+|---|---|---|
+| No-Show Rate by Reminder Status/Channel | No reminder: 51.39% · SMS: 45.75% (best) · Email: 48.41% · WhatsApp: 49.77% | Does reminder channel affect no-shows? |
+| No-Show Rate by Previous No-Show History | 43.51% (none) → 100% (5+ prior no-shows) | Does past behavior predict future no-shows? |
+| No-Show Rate by Distance to Clinic | 46.45% (0-5km) → 68.06% (30+km) | Does distance affect attendance? |
+| No-Show Rate by Booking Lead Time | 24.84% (0-3 days) → 56.94% (22+ days) | Does time-to-appointment affect attendance? |
+
+### Key Findings
+- **Booking Lead Time is the strongest individual predictor** (correlation 0.272) — no-show rate more than doubles for appointments booked 22+ days out
+- **Previous No-Show History** shows a clear escalating pattern (correlation 0.126) — past behavior is a genuine risk signal
+- **SMS reminders outperform WhatsApp and Email** — a directly actionable finding for reminder strategy
+- **Distance matters mainly at the extreme** (30+km), not as a smooth linear effect
+
+### Dashboard
+An initial Power BI dashboard was built featuring 3 KPI cards, 5 analytical charts, and 2 interactive slicers (Gender, Age Group). See `HealthConnect_Week5_Dashboard_Export.pdf`.
+
+### Cross-Track Collaboration
+Shared this week's correlation findings with the **Data Science track**, highlighting Booking Lead Time and Previous No-Show History as the strongest candidate features for their no-show prediction model.
+
+### Proposed Focus for Week 6
+Explore combined/interaction effects between factors (e.g., high previous no-shows + long booking lead time), and synthesize findings into final prioritized recommendations for HealthConnect leadership.
+
+---
