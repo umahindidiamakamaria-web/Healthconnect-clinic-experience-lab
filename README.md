@@ -101,3 +101,39 @@ Shared this week's correlation findings with the **Data Science track**, highlig
 Explore combined/interaction effects between factors (e.g., high previous no-shows + long booking lead time), and synthesize findings into final prioritized recommendations for HealthConnect leadership.
 
 ---
+
+## Week 6 — Advanced Analytics & Cross-Track Integration
+
+Week 6 moved beyond Week 5's single-factor KPIs into deeper interaction analysis, validation, and a concrete cross-track integration with the Data Science track — rather than repeating Week 5's EDA.
+
+### Combined Risk Analysis
+Investigated whether risk factors compound when combined, since no single Week 5 factor showed a strong correlation on its own. Patients were segmented by two flags: prior no-show history (Yes/No) and long booking lead time (22+ days, Yes/No).
+
+| Previous No-Shows | Long Lead Time | No-Show Rate |
+|---|---|---|
+| No | No | 29.94% |
+| No | Yes | 51.70% |
+| Yes | No | 39.87% |
+| **Yes** | **Yes** | **64.09%** |
+
+Patients carrying **both** risk factors are more than twice as likely to no-show as patients with neither — the strongest and most actionable finding of the project so far.
+
+### KPI Validation
+Re-tested reminder effectiveness and distance *within* the high-risk segment specifically:
+- Reminders show a **larger effect in the high-risk group** (67.39% → 62.84%) than the low-risk group (31.16% → 29.49%) — reminders matter most for the patients who need them most.
+- Distance continues to add an independent effect even within the high-risk segment, confirming it isn't simply explained away by the other two factors.
+
+### Cross-Track Integration — Data Science
+Delivered a specific, implementable recommendation: engineer a combined interaction feature (`high_combined_risk` = previous_no_shows ≥ 1 AND booking_lead_days ≥ 22) rather than treating these variables as independent model inputs, since the interaction carries substantially more predictive signal than either alone.
+
+### Updated Business Recommendations
+1. Prioritize the combined high-risk segment (64.09% no-show rate) for intensive outreach
+2. Shift reminder strategy toward risk-based targeting rather than uniform application
+3. Adopt SMS as the primary reminder channel
+4. Review booking-lead-time policy for long-lead appointments
+5. Investigate distance-based support (e.g. telehealth) for the 30km+ patient segment
+
+### Proposed Focus for Week 7
+Test whether distance adds a meaningful third dimension to the combined-risk segmentation, and begin translating findings into final prioritized recommendations for HealthConnect leadership.
+
+---
