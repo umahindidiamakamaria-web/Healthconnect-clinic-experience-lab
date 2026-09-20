@@ -137,3 +137,26 @@ Delivered a specific, implementable recommendation: engineer a combined interact
 Test whether distance adds a meaningful third dimension to the combined-risk segmentation, and begin translating findings into final prioritized recommendations for HealthConnect leadership.
 
 ---
+
+## Week 7 — Testing & Refinement
+
+Week 7 shifted from building to rigorously testing prior work — re-validating dashboard accuracy, checking whether findings hold across patient segments, and stress-testing the Week 6 cross-track recommendation rather than assuming it was correct.
+
+### Testing Summary
+7 formal tests were run, documented in a full Test Log (Test → Expected → Actual → Pass/Fail → Action → Retest):
+
+- **Dashboard calculation accuracy**: All core KPIs and the Combined Risk Matrix were recalculated independently from the raw dataset and matched the dashboard exactly. ✅ PASS
+- **Segment consistency**: The Week 6 combined-risk finding (patients with both prior no-show history and long booking lead time) was tested across Gender, Age Group, and Appointment Type — the elevated risk pattern held robustly across every segment. ✅ PASS
+- **Slicer functionality**: Gender and Age Group slicers were tested against the Combined Risk Matrix and correctly filtered results in both cases. ✅ PASS
+- **Cross-track feature validation**: The Week 6 recommendation (a binary `high_combined_risk` flag) was statistically tested against alternative feature versions. ❌ **FAIL** — the binary flag actually underperformed Booking Lead Time used alone, since it collapsed four distinct risk groups into two and lost information.
+
+### Finding, Fix, and Retest
+This is the key outcome of the week: testing revealed the original Week 6 recommendation wasn't as strong as it appeared. The fix — replacing the binary flag with a **4-level categorical risk segment** feature (preserving all four original risk combinations) — was retested and confirmed to produce a 34.16-point spread between best and worst segments, the strongest separation of any feature version tested. This is now the updated, validated recommendation for the Data Science track's model.
+
+### Key Takeaway
+Rather than treating a Week 6 recommendation as final, Week 7 demonstrated that testing your own prior conclusions can surface real improvements — a genuine Test → Finding → Action → Retest → Validated Improvement cycle, not just a repeat of previous analysis.
+
+### Proposed Focus for Week 8
+Revisit and re-validate the earlier project findings (Weeks 4-6) with the same testing rigor if time allows, and continue pursuing live cross-track contact with the Data Science team to confirm the revised feature recommendation with real collaboration.
+
+---
