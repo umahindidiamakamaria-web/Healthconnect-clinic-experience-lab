@@ -160,3 +160,24 @@ Rather than treating a Week 6 recommendation as final, Week 7 demonstrated that 
 Revisit and re-validate the earlier project findings (Weeks 4-6) with the same testing rigor if time allows, and continue pursuing live cross-track contact with the Data Science team to confirm the revised feature recommendation with real collaboration.
 
 ---
+## Week 8 — Final Integration, Presentation & Project Wrap-Up
+
+Week 8 closed out the HealthConnect project — finalizing all analytical outputs, completing a last round of cross-track integration, and presenting the full project via video.
+
+### Final Deliverable
+The dashboard and analytics package from Weeks 5-7 were consolidated into a final Analytics & Decision Support Package, including:
+- **4 validated KPIs**: No-Show Rate by Reminder Channel, Previous No-Show History, Distance to Clinic, and Booking Lead Time
+- **Validated combined-risk finding**: patients with both prior no-show history and a long booking lead time show a 64.09% no-show rate — more than double the 29.94% rate for patients with neither factor — confirmed robust across gender, age group, and appointment type through Week 7 testing
+- **5 evidence-based recommendations**, led by prioritizing the combined high-risk segment for targeted, SMS-first intervention
+
+### Final Cross-Track Integration — Data Science
+Delivered a fully validated feature specification: a 4-level categorical risk segment, corrected from an initial under-informative binary flag after Week 7 testing revealed it lost predictive information. This represents a complete Test → Finding → Action → Retest → Validated Improvement cycle, carried out independently after no live response was received through the shared team channel.
+
+### Final Presentation
+A recorded video walkthrough (~5-6 minutes) covering the track contribution, cross-track collaboration, testing outcomes, and overall HealthConnect solution was completed and submitted.
+🔗 [https://drive.google.com/drive/folders/17OEGQjVenNQkxnZEr-AJulX6TdFefFTl?usp=drive_link]
+
+### Project Reflection
+Across 5 weeks, this project moved from understanding a clinic's no-show problem (48.46% baseline) through initial single-factor KPIs, into a validated, tested combined-risk model — with one genuine mid-project correction along the way, where testing caught a flaw in an earlier recommendation and led to a demonstrably stronger fix. The biggest takeaway: testing prior conclusions is as important as producing them in the first place.
+
+---
